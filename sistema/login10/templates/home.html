@@ -7,38 +7,46 @@ Home
 {% endblock %}
 
 {% block content %}
+<div class="row">
 
-<div class="table">
-    <table class="table table-striped">
-        <thead>
-          <tr>
-            <th scope="col">#</th>
-            <th scope="col">First</th>
-            <th scope="col">Last</th>
-            <th scope="col">Handle</th>
-          </tr>
-        </thead>
-        <tbody>
-          <tr>
-            <th scope="row">1</th>
-            <td>Mark</td>
-            <td>Otto</td>
-            <td>@mdo</td>
-          </tr>
-          <tr>
-            <th scope="row">2</th>
-            <td>Jacob</td>
-            <td>Thornton</td>
-            <td>@fat</td>
-          </tr>
-          <tr>
-            <th scope="row">3</th>
-            <td>Larry</td>
-            <td>the Bird</td>
-            <td>@twitter</td>
-          </tr>
-        </tbody>
-      </table>
+<div class="col-sm-12 col-md-6 col-lg-4 col-xl-4">
+  <p>Hola</p>
 </div>
+
+{% if user.is_authenticated%}
+<div class="col-sm-12 col-md-6 col-lg-8 col-xl-8">
+  <div class="table">
+      <table class="table table-striped">
+          <thead>
+            <tr>
+              <th scope="col">#</th>
+              <th scope="col">Nombre</th>
+              <th scope="col">Departamento</th>
+              <th scope="col">Cargo</th>
+            </tr>
+          </thead>
+          <tbody>
+      {% for i in empleados %}
+
+            <tr>
+              <th scope="row">{{ forloop.counter }}</th>
+              <td>{{ i.nombre}}</td>
+              <td>{{ i.departamento }}</td>
+              <td>{{ i.cargo }}</td>
+            </tr>
+      {% endfor %}
+
+          </tbody>
+        </table>
+  </div>
+</div>
+{% else%}
+<div class="col-sm-12 col-md-6 col-lg-8 col-xl-8">
+
+<h6></h6><a href="{% url 'iniciarsesion' %}">Inicia sesion</a> o <a href="{% url 'registrate' %}">Registrate</a> para poder ver los datos</h6>
+{%  endif%}
+</div>
+</div>
+
 {% endblock %}
 
