@@ -26,13 +26,19 @@ def agregar_empleado(request):
     empleado_ = empleado.objects.create(nombre=nombre, departamento=departamento, cargo=cargo, sueldo=sueldo, fecha=datetime.now() )
     return redirect('home')
 
+#! Eliminar empleado
+
+def eliminar_empleado(request, id):
+    empleado_ = empleado.objects.get(id=id)
+    empleado_.delete()
+    return redirect('home')
 
 
 #Authenticate
 def registrate(request):
     if  request.method == 'GET':
         return render(request, './login/registrate.html',{
-            'form': UserCreationForm
+            'form': UserCreationForm,
         })
     else:
         if request.POST['password1'] == request.POST['password2']:

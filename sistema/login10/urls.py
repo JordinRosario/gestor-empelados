@@ -13,5 +13,6 @@ urlpatterns = [
     
     #! 
     path('agregar/empleado/', views.agregar_empleado, name='agregar_empleado'),
+    path('eliminar/<id>',views.eliminar_empleado),
 ]
 

@@ -1,4 +1,13 @@
 *{
-    background-color:rgb(206, 81, 81);
-    padding: 5px;
+    background-color:#fcfcfc;
+    padding: 3px;
+}
+
+.msg{
+    font-size: 0.9em;
+}
+
+.msg a{
+    text-decoration: none;
+    color: green;
 }

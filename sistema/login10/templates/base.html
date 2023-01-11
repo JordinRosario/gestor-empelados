@@ -19,7 +19,9 @@
             <a class="navbar-brand" href="">Home</a>
 
             {% if user.is_authenticated %}
-                <a    class="btn btn-outline-danger me-2 ms-auto" href="{% url 'cerrarsesion' %}">Cerrar sesion</a>  
+                <a class="navbar-brand text-success" href="">Bienvenido {{user}}</a>
+                <a class="btn btn-outline-success me-2 ms-auto"  href=""> Mi cuenta</a>
+                <a    class="btn btn-outline-danger me-2" href="{% url 'cerrarsesion' %}">Cerrar sesion</a>  
 
             {% else %}
                 <a class="btn btn-outline-success me-2 ms-auto" type="button" href="{% url 'registrate' %}"> Registrarte </a>
