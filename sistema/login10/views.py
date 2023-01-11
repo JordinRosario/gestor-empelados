@@ -4,6 +4,7 @@ from django.contrib.auth.forms import UserCreationForm,AuthenticationForm
 from django.contrib.auth.models import User
 from django.contrib.auth import login,authenticate, logout
 from .models import empleado
+from datetime import datetime
 # Create your views here.
 
 def home(request):
@@ -12,6 +13,19 @@ def home(request):
         'empleados':empleados,
         
     })
+
+
+#! AGREGAR CURSO
+
+def agregar_empleado(request):
+    nombre = request.POST['txtnombre']
+    departamento = request.POST['txtdepartamento']
+    cargo = request.POST['txtcargo']
+    sueldo = request.POST['numsueldo']
+    
+    empleado_ = empleado.objects.create(nombre=nombre, departamento=departamento, cargo=cargo, sueldo=sueldo, fecha=datetime.now() )
+    return redirect('home')
+
 
 
 #Authenticate

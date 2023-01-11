@@ -10,7 +10,35 @@ Home
 <div class="row">
 
 <div class="col-sm-12 col-md-6 col-lg-4 col-xl-4">
-  <p>Hola</p>
+  <h2>Agregar empleados</h3>
+  <div class="card">
+      <div class="card-body">
+        <form action="{% url 'agregar_empleado' %}" method="POST">
+          {% csrf_token %}
+          <div class="form-gro py-2">
+            <input type="text" id="txtnombre" name="txtnombre" placeholder="Nombre" class="form-control" maxlength="60" required>
+          </div>
+
+          <div class="form-gro py-2">
+            <input type="text" id="txtdepartamento" name="txtdepartamento" placeholder="Departamento" class="form-control" maxlength="50" required>
+          </div>
+
+          <div class="form-gro" py-2>
+            <input type="text" id="txtcargo" name="txtcargo" placeholder="Cargo" class="form-control" maxlength="70" required>
+          </div>
+
+          <div class="form-gro py-2">
+            <input type="number" id="numsueldo" name="numsueldo" placeholder="Sueldo" class="form-control">
+          </div>
+
+          <div class="form-gro py-2">
+            <div class="d-grid gap-2">
+              <button type="submit" class="btn btn-outline-success">Guardar</button>
+            </div>
+          </div>
+        </form>
+      </div>
+  </div>
 </div>
 
 {% if user.is_authenticated%}
